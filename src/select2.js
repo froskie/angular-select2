@@ -233,6 +233,13 @@ angular.module("rt.select2", [])
                     };
                 }
 
+                attrs.$observe("placeholder", function (value){
+                    if(value){
+                        element.select2("data", {"id":-1, "text":value});
+                        element.select2("val", -1);
+                    }
+                });
+
                 // register with the select2stack
                 var controlObj = {
                     close: function () {
